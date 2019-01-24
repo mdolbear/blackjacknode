@@ -10,17 +10,12 @@ very new to node.js and express, so I have probably committed mortal sins.
 2) Install docker in your environment. I am using docker for mac.
 
 3) To get Mongo, do the following:
-
 ```docker run -p 27017:27017 mongo```
 
-4) In the main directory, do
-
+4) In the main directory, do to pick up the dependencies outlined in package.json: 
 ```npm install```
 
-to pick up the dependencies outlined in package.json.
-
 5) to start the app via command line do:
-
 ```npm start```
 
 6) Here are a set of commands you can run to execute the game (bring up a shell to run these):
