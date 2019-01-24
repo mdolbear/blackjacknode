@@ -19,7 +19,11 @@ very new to node.js and express, so I have probably committed mortal sins.
 
 to pick up the dependencies outlined in package.json.
 
-5) Here are a set of commands you can run to execute the game (bring up a shell to run these):
+5) to start the app via command line do:
+
+```npm start```
+
+6) Here are a set of commands you can run to execute the game (bring up a shell to run these):
 
 
 ```curl -X POST http://localhost:3000/blackjack/createCardDeck```
