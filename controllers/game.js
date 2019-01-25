@@ -164,7 +164,7 @@ createGameStateResponse = (aGame) => {
     return {
 
         gameId: aGame.id,
-        gameState: aGame.state,
+        gameState: aGame.gameState,
         players: tempPlayers
 
     };

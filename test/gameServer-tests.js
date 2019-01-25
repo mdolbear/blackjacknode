@@ -18,6 +18,8 @@ describe('Test - Create and play a sample game', () => {
         var tempCardDeckId;
         var tempGameId;
 
+        //One player
+        console.log('One player test');
         tempResponse =
             await chai.request(tempUrl).post('/blackjack/createCardDeck');
         assert.equal(tempResponse.statusCode, 200, 'Not successful');
@@ -28,10 +30,57 @@ describe('Test - Create and play a sample game', () => {
         assert.equal(tempResponse.statusCode, 200, 'Not successful');
         tempGameId = tempResponse.body.result;
 
-        tempResponse =
-            await chai.request(tempUrl).post('/blackjack/playHand/' + tempCardDeckId + '/' + tempGameId);
-        assert.equal(tempResponse.statusCode, 200, 'Not successful');
+        await playUntilTerminated(tempCardDeckId, tempGameId);
 
+        //Three players
+        console.log('Three player test');
+        tempResponse =
+            await chai.request(tempUrl).post('/blackjack/createCardDeck');
+        assert.equal(tempResponse.statusCode, 200, 'Not successful');
+        tempCardDeckId = tempResponse.body.result;
+
+        tempResponse =
+            await chai.request(tempUrl).post('/blackjack/startGame/3');
+        assert.equal(tempResponse.statusCode, 200, 'Not successful');
+        tempGameId = tempResponse.body.result;
+
+        await playUntilTerminated(tempCardDeckId, tempGameId);
+
+        //Five players
+        console.log('Five player test');
+        tempResponse =
+            await chai.request(tempUrl).post('/blackjack/createCardDeck');
+        assert.equal(tempResponse.statusCode, 200, 'Not successful');
+        tempCardDeckId = tempResponse.body.result;
+
+        tempResponse =
+            await chai.request(tempUrl).post('/blackjack/startGame/3');
+        assert.equal(tempResponse.statusCode, 200, 'Not successful');
+        tempGameId = tempResponse.body.result;
+
+        await playUntilTerminated(tempCardDeckId, tempGameId);
 
     })
-})
+});
+
+const playUntilTerminated = async function(aCardDeckId, aGameId) {
+
+    let tempGameState;
+    var tempResponse;
+
+    while (tempGameState != 'terminated') {
+
+        tempResponse =
+            await chai.request(tempUrl).post('/blackjack/playHand/' + aCardDeckId + '/' + aGameId);
+        assert.equal(tempResponse.statusCode, 200, 'Not successful');
+
+        tempResponse =
+            await chai.request(tempUrl).get('/blackjack/gameState/' + aGameId);
+
+        console.log('Result of last hand: ' + JSON.stringify(tempResponse.body.result));
+
+        tempGameState = tempResponse.body.result.gameState;
+
+    }
+
+}

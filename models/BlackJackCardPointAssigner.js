@@ -144,7 +144,7 @@ class BlackJackCardPointAssigner {
             while (i < tempPossiblePoints.length &&
                                 (tempResult === 0)) {
                 tempResult =
-                    this.assignPointsIPossible(i, tempPossiblePoints, aPlayer);
+                    this.assignPointsIfPossible(i, tempPossiblePoints, aPlayer);
 
                 i += 1;
 
@@ -163,7 +163,7 @@ class BlackJackCardPointAssigner {
      * @param aPlayer
      * @returns {number}
      */
-    assignPointsIPossible(i, aPossiblePoints, aPlayer) {
+    assignPointsIfPossible(i, aPossiblePoints, aPlayer) {
 
         let tempResult = 0;
 
@@ -172,7 +172,7 @@ class BlackJackCardPointAssigner {
             tempResult = aPossiblePoints[i];
         }
         else if (aPlayer.computeCurrentHandPoints() + aPossiblePoints[i]
-                                    <= pointAssigner.MAXIMUM_NUMBER_OF_POINTS) {
+                                    <= MAXIMUM_NUMBER_OF_POINTS) {
 
             tempResult = aPossiblePoints[i];
         }
