@@ -32,12 +32,12 @@ c224ead0-2007-11e9-a8a0-8b231ff05045
 
 To get the state of the game, do the following:
 
-curl http://localhost:3000/blackjack/gameState/c224ead0-2007-11e9-a8a0-8b231ff05045
+```curl http://localhost:3000/blackjack/gameState/c224ead0-2007-11e9-a8a0-8b231ff05045```
 
 
 You can play hands until the game terminates, by running the following curl command:
 
-curl -X POST http://localhost:3000/blackjack/playHand/854cdb50-2006-11e9-a8a0-8b231ff05045/c224ead0-2007-11e9-a8a0-8b231ff05045
+```curl -X POST http://localhost:3000/blackjack/playHand/854cdb50-2006-11e9-a8a0-8b231ff05045/c224ead0-2007-11e9-a8a0-8b231ff05045```
 
 To get the state of the terminated game, run the command to get game state again. Here is an
 example state for a terminated game:
