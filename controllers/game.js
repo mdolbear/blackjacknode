@@ -149,13 +149,30 @@ createGameStateResponse = (aGame) => {
 
     let tempPlayers = [];
     let tempPlayerInfo;
+    let tempCards;
+    let tempCardInfo;
 
     for (let i = 0; i < aGame.players.length; i++) {
+
+        tempCards = [];
+        for (let j = 0; j < aGame.players[i].cards.length; j++) {
+
+            tempCardInfo = {
+                            cardId: aGame.players[i].cards[j].id,
+                            points: aGame.players[i].cards[j].points,
+                            suit: aGame.players[i].cards[j].card.suit,
+                            cardType: aGame.players[i].cards[j].card.cardType
+            };
+
+            tempCards.push(tempCardInfo);
+
+        }
 
         tempPlayerInfo = {
                         playerId: aGame.players[i].id,
                         playerState: aGame.players[i].state,
-                        points: aGame.players[i].computeCurrentHandPoints()
+                        points: aGame.players[i].computeCurrentHandPoints(),
+                        cards: tempCards
         };
 
         tempPlayers.push(tempPlayerInfo);

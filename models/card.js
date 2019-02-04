@@ -62,7 +62,7 @@ class Card {
 }
 
 //Enum for Suit
-const Suit = ['CLUBS', 'HEART', 'SPADES', 'DIAMONDS'];
+const Suit = ['CLUBS', 'HEARTS', 'SPADES', 'DIAMONDS'];
 Object.freeze(Suit);
 const NUMBER_OF_SUITS = 4;
 
