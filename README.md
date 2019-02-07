@@ -1,7 +1,7 @@
 #Blackjack node.js
 This project is very similar to its java version in logic, but its implemented in node.js. My goal with this is to
-try out the MEAN architecture but I currently only have ME. I still need to implement the UI in Angular. I am
-very new to node.js and express, so I have probably committed mortal sins. 
+try out the MEAN architecture. The UI for this project implemented in Angular is at https://github.com/mdolbear/blackjacknodeui.
+I am very new to node.js and express, so I have probably committed mortal sins. 
 
 ![](images/BlackJackGameModel.png)
 
