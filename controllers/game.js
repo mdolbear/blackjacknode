@@ -5,7 +5,7 @@ const logger = log4js.getLogger();
 logger.level = 'debug';
 
 const cardDeckService = require('../services/carddeck');
-const tempUrl = 'mongodb://localhost:27017/db';
+const tempUrl = process.env.MONGO_URL;
 const gameService = require('../services/game');
 
 /**

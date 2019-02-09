@@ -11,6 +11,7 @@ I am very new to node.js and express, so I have probably committed mortal sins.
 
 3) To get Mongo, do the following:
 ```docker run -p 27017:27017 mongo```
+Make sure to set the mongo url in package.json prior to starting.
 
 4) In the main directory, do to pick up the dependencies outlined in package.json: 
 ```npm install```
